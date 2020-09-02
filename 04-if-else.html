@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script> 
+        //'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        //inicializar variáeis diretamente é má prática de programação
+        'use strict'
+        
+        let num = parseInt(prompt('Informe um número inteiro: '))
+        // se for digitado letra, ele entra na unica condição (else), entao se deve
+        // tratar isso, com o conversor parseInt
+        // parseInt tenta converter string em número, se conseguir
+        // o resultado sera o número inteiro, se falhar o resultado é NaN
+
+        
+        // if é sempre escrito minusculo
+        // é obrigatoriamente seguido de parenteses
+        // a condição de teste vai dentro dos parênteses
+
+        if (num > 0) {
+            alert('O número informado é POSITIVO')
+        }
+
+        //else if são duas palavras separadas
+        else if (num == 0){
+            alert('O número informado é zero')
+        }
+        // else é sempre escrito minúculo 
+        // tem seu próprio bloco de comandos (entre {})
+        else {
+            alert('O número é NEGATIVO')
+        }
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
