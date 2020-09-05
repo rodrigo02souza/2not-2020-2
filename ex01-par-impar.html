@@ -18,18 +18,24 @@
         */
         
         //entrada de dados
+
+        // prompt() sempre recolhe respostas do tipo string
+        
+        // Por isso , vamos *tentar* converter a entrada do usuário
+        // em um número inteiro usando o parseInt()
         let num = parseInt(prompt('Digite um número: '))
 
         //ver se é par ou impar
-        num = num % 2
 
-        if(num == 0) {
+        if (isNaN(num)){
+            alert('Informe um número inteiro válido..!!')
+        }
+        else if(num % 2 == 0) {
             alert('O número digitado é par')
         }
         else {
             alert('O número digitado é impar')
-        }
-
+        } 
         
     </script>
 </head>

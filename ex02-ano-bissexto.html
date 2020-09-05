@@ -34,8 +34,10 @@
         let div400 = ano % 400
         let div4 = ano % 4
         let div100 = ano % 100
-
-        if( div400 == 0 || (div4 == 0 && div100 != 0)){
+        if (isNaN(ano) || (ano < 1582)){
+            alert('O ano informado é inválido..!!')
+        }
+        else if( ano % 400 == 0 || (ano % 4 == 0 && div100 != 0)){
             alert('O ano informado é bissexto')
         }
         else { 
