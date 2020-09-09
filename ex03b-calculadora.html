@@ -35,28 +35,36 @@
         if (isNaN(num1) || isNaN(num2)){
             document.write('Informe valores válidos \n')
         }
-        else if(ope == '+'){
-            res = num1 + num2
-        }
-        else if(ope == '-'){
-            res = num1 - num2
-        }
-        else if(ope == '*' || ope == 'X' || ope == 'x'){
-            res = num1 * num2
-        }
-        else if(ope == '/' || ope == ':'){
-            res = num1 / num2
-        }
-        else{
-            alert('O operador infomado é invalido')
-            temErro = true
+        else {
+            switch(ope) {
+                case '+':
+                    res = num1 + num2 
+                    break
+
+                case '-':
+                    res = num1 - num2
+                    break
+
+                case 'X':       //case vazio
+                case 'x':       //case vazio
+                case '*':
+                    res = num1 * num2 
+                    break
+
+                case '/':       //case vazio
+                case ':':
+                    res = num1 / num2
+                    break
+
+                default:        //se não entrar em nenhum case
+                alert('ERRO: o operador informado é inválido.')
+                //temErro = true
+                
+            }
         }
 
         if(!temErro) {
-        //document.write('O resultado da operação: ' + num1 + ' ' + ope + ' ' + ' ' + num2 + ' é igual a ' + res + '.')
-
-        //usando string tamplate (que usa acentos graves - backtick)
-        document.write(`O resultado da operação: ${num1} ${ope} ${num2} é igual a ${res}`)
+        document.write('O resultado da operação: ' + num1 + ' ' + ope + ' ' + ' ' + num2 + ' é igual a ' + res + '.')
         } 
     </script>
 </head>
