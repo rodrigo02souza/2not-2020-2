@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+        
+        /*
+            Solicite ao usuário que informe o número correspondente a um
+            mês, na faixa entre 1 e 12.
+
+            Usando a estrutura switch..case, informe de volta ao usuário quantos
+            dias possui o mês informado, conforme segue:
+
+            JANEIRO, MARÇO, MAIO, JULHO, AGOSTO, OUTUBRO e DEZEMBRO: 31 dias
+            ABRIL, JUNHO, SETEMBRO e NOVEMBRO: 30 dias
+            FEVEREIRO: 28 dias (29 em anos bissextos)
+        */
+        
+        // Entrada de dados
+        let mes
+        do {
+            do {
+            mes = Number(prompt('Informe o número do mês (1 - 12) para mostrar quantos dias ele tem:'))
+        } while(isNaN(mes) || mes < 0 || mes > 12)
+
+        switch(mes){
+            case 1:
+            alert('Mês: Janeiro \nEsse mês tem 31 dias')
+            break
+            case 2:
+            alert('Mês: Fevereiro \nEsse mês tem 28 dias (29 dias em anos bissextos)')
+            break
+            case 3:
+            alert('Mês: Março \nEsse mês tem 31 dias')
+            break
+            case 4:
+            alert('Mês: Abril \nEsse mês tem 30 dias')
+            break
+            case 5: 
+            alert('Mês: Maio \nEsse mês tem 31 dias')
+            break
+            case 6: 
+            alert('Mês: Junho \nEsse mês tem 30 dias')
+            break
+            case 7: 
+            alert('Mês: Julho \nEsse mês tem 31 dias')
+            break
+            case 8: 
+            alert('Mês: Agosto \nEsse mês tem 31 dias')
+            break
+            case 9:
+            alert('Mês: Setembro \nEsse mês tem 30 dias')
+            break
+            case 10: 
+            alert('Mês: Outubro \nEsse mês tem 31 dias')
+            break
+            case 11: 
+            alert('Mês: Novembro \nEsse mês tem 30 dias')
+            break
+            case 12: 
+            alert('Mês: Dezembro \nEsse mês tem 31 dias')
+            break
+            case 0:
+            alert('Informe um número válido de acordo com as informações!!')
+
+        }
+    } while(mes > 0)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

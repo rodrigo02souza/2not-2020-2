@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+        
+        /*
+            Recentemente, as placas de automóveis no Brasil passaram a usar
+            o chamado "modelo Mercosul".
+
+            Nesse modelo, o segundo dígito numérico do modelo anterior passou
+            a ser representado por uma letra. A conversão é regida pela tabela:
+
+            Dígito         Letra
+               0              A
+               1              B
+               2              C
+               3              D
+               4              E
+               5              F
+               6              G
+               7              H
+               8              I
+               9              J
+
+            Assim, uma placa tradicional ABC-1234, no formato do padrão Mercosul,
+            ficaria ABC-1C34.
+
+            Peça para o usuário informar um dígito de 0 a 9 e, usando a estrutura
+            de decisão switch..case, informe ao usuário a letra correspondente
+            ao dígito informado.
+        */
+        let num 
+        let letra
+        do{
+            num = parseInt(prompt('Insira um número inteiro de 0 a 9 para mostrar a letra correspondente:'))
+        
+        } while(isNaN(num) || num < 0 || num > 9)
+        
+            switch(num){
+                case 0: 
+                letra = 'a'
+                break
+                case 1: 
+                letra = 'b'
+                break
+                case 2: 
+                letra = 'c'
+                break
+                case 3: 
+                letra = 'd'
+                break
+                case 4: 
+                letra = 'e'
+                break
+                case 5: 
+                letra = 'f'
+                break
+                case 6: 
+                letra = 'g'
+                break
+                case 7: 
+                letra = 'h'
+                break
+                case 8: 
+                letra = 'i'
+                break
+                case 9: 
+                letra = 'j'
+                break
+
+                default: 
+                alert('Insira um número válido de acordo com as informações no enunciado!!')
+            }
+            alert(`A letra correspondente é: ${letra}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
