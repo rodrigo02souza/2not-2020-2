@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <h1>Formulário de cáçculo de preços</h1>
+    <!-- label e input são elementos inline (ou em linha) -->
+    <div>
+        <label>Nome do produto</label>
+        <input size="50">
+    </div>
+
+    <div>
+        <label>Quantidade</label>
+        <input id="qtd" type="number" step="0.01" >
+    </div>
+
+    <div>
+        <label>Preço unitário</label>
+        <input>
+
+    </div>
+
+    <div>
+        <label>PREÇO TOTAL</label>
+        <span id="resultado"></span>
+    </div>
+
+     <script> 
+        //'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        //inicializar variáeis diretamente é má prática de programação
+        'use strict'
+        
+        let elemQtd = document.querySelector('#qtd') // forma moderna
+        let elemPrecoUnit = document.getElementById('preco_unit') //Forma tradicional
+        let elemResultado = document.querySelector('#resultado')
+
+        function calcular(){
+
+            let quantidade = parseFloat(elemQtd.value) //forma tradicional
+            let precoUnit = Number(elemPrecoUnit.value) //forma moderna
+            let resultado
+
+            // Caso ambos os números tenham passado na avaliação
+            if(!isNaN(quantidade) && !isNaN(precoUnit)){
+                elemResultado.innerText = quantidade * precoUnit
+            }
+            else {
+                elemResultado = ''
+            }
+        }
+
+        elemQtd.addEventListener('change', calcular)
+        elemPrecoUnit.addEventListener('change', calcular)
+    </script>
+</body>
+</html>
