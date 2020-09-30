@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script> 
+        //'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        //inicializar variáeis diretamente é má prática de programação
+        'use strict'
+        
+        // variavel que receberá e armazenará as strings para depois serem mostradas
+        let lombofaixas = 30
+
+        // Eu defini a variavel como 30 pois a variavel em si será mostrada primeiramente, então o for eu fiz a partir do 59 que é a variavel mais 29km como foi pedido no exercicio. Como dito em aula não faz sentido ter algo no inicio da quilometragem
+
+        //quilometros que haverá lombofaixas usando for
+        for(let i = 59; i <= 400; i += 29){
+            lombofaixas = lombofaixas + `<br> ${i}`
+        }
+
+        // mostragem dos quilometros que terão lombadas
+        document.write(lombofaixas)
+
+        //variavel que receberá um numero do usuário de 1 até 400 dentro da verificação abaixo
+        let num
+
+        //verificação se o número informado é válido usando do..while
+        do{
+            num = parseInt(prompt('insira um quilometro de 1 até 400 para que seja informado se há algo francano nessa quilometragem'))
+        } while(isNaN(num) && num < 1 || num > 400)
+
+        //variavel para armazenar o resultado e mostra-lo no fim da execução
+        let algoFran
+
+        switch(num) {
+            case 92:
+            case 177:
+            case 291:
+            case 388:
+                algoFran = 'Megalojas do Magazine Luiza'
+                break 
+            case 153:
+            case 356:
+                algoFran = 'Drive-thru dos Calçados Rafarillo'
+                break
+            case 187:
+                algoFran = 'Posto de recarga da Viação São José'
+                break
+            case 210:
+                algoFran = 'Filial da Padaria Estrela'
+                break
+            case 314:
+                algoFran = 'Fábrica do Jubileu do Amendoim'
+                break
+            case 367:
+                algoFran = 'Franca AcquaParque Unidade II'
+                break 
+
+            default:
+                algoFran = 'Vapo, tem nada aqui não. Segue reto toda vida,meu fii.'
+        }
+
+        //mostragem se há alguma francanice nessa quilometragem
+        document.write('<br><br>' + algoFran)
+
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
