@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento</title>
+    <style>
+        label{
+            /* Forçar o modo de exibição em bloco*/
+            display: block;
+        }
+
+        fieldset label {
+            display: inline;
+        }
+
+        fieldset {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            width: 200px;
+        }
+
+        div , fieldset {
+            margin-bottom:15px;
+        }
+        div {
+            /*
+            border: 1px dotted red;
+            */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    
+    <h1>Formulário de saudação</h1>
+    <div>
+        <label>Primeiro nome</label>
+        <input type="text" id="primeiro-nome" placholder="Informe primeiro nome" size="30">
+    </div>
+
+    <div>
+        <label>Sobrenome</label>
+        <input type="text" id="sobrenome" placholder="Informe seu sobrenome" size="30">
+    </div>
+
+    <div>
+        <label>Forma de tratamento</label>
+        <select id="forma-tratamento">
+            <option>(selecione)</option>
+            <option>Vossa Majestade</option>
+            <option>Excelentíssio/a</option>
+            <option>Vossa senhoria</option>
+            <option>Pokemon</option>
+            <option>Cremoso/a</option>
+        </select>
+    </div>
+
+    <fieldset>
+        <legend>Sexo</legend>
+        <input type="radio" id="feminino" name="sexo"><label>Feminino</label>
+        <input type="radio" id="masculino" name="sexo" checked><label>masculino</label>
+    </fieldset>
+
+    <div>
+        <label>Hora do dia</label>
+        <input type="number" id="hora-dia" min="0" max="23">
+    </div>
+
+    <fieldset>
+        <legend>Exibição da saudação</legend>
+        <input type="checkbox" id="alert">
+        <label for="alert">Exibir com alert()</label>
+        <input type="checkbox" id="document">
+        <label for="document">Exibir com document</label>
+    </fieldset>
+
+    <div id="saudacao"></div>
+
+    <div>
+        <button id="enviar">enviar</button>
+    </div>
+    <script> 
+        //'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        //inicializar variáeis diretamente é má prática de programação
+        'use strict'
+        
+    </script>
+</body>
+</html>
