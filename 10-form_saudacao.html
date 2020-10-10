@@ -10,7 +10,7 @@
             display: block;
         }
 
-        fieldset label {
+        fieldset, label {
             display: inline;
         }
 
@@ -38,12 +38,14 @@
     <h1>Formulário de saudação</h1>
     <div>
         <label>Primeiro nome</label>
-        <input type="text" id="primeiro-nome" placholder="Informe primeiro nome" size="30">
+        <br>
+        <input type="text" id="primeiro-nome" placholder="Informe primeiro nome" size="40">
     </div>
 
     <div>
         <label>Sobrenome</label>
-        <input type="text" id="sobrenome" placholder="Informe seu sobrenome" size="30">
+        <br>
+        <input type="text" id="sobrenome" placholder="Informe seu sobrenome" size="40">
     </div>
 
     <div>
@@ -73,6 +75,7 @@
         <legend>Exibição da saudação</legend>
         <input type="checkbox" id="alert">
         <label for="alert">Exibir com alert()</label>
+        <br>
         <input type="checkbox" id="document">
         <label for="document">Exibir com document</label>
     </fieldset>
@@ -88,6 +91,122 @@
         //inicializar variáeis diretamente é má prática de programação
         'use strict'
         
+        /* PASSO 1: captura dos elementos HTML */
+
+        const elPrimeiroNome = document.getElementById('primeiro-nome')
+        const elSobrenome = document.getElementById('sobrenome')
+        const elFormaTratamento = document.getElementById('forma-tratamento')
+
+        const elMasculino = document.querySelector('#masculino')
+        const elFeminino = document.querySelector('#feminino')
+        const elHoraDia = document.querySelector('#hora-dia')
+        const elAlert = document.querySelector('#alert')
+        const elDocument = document.querySelector('#document')
+        const elSaudacao = document.querySelector('#saudacao')
+        const elEnviar = document.querySelector('#enviar')
+
+        /* PASSO 2: validação da entrada de usuário */
+        function validar() {
+
+            let valido = true
+
+            // trim(): retira espaços em branco no início e no final de uma string
+
+            if(elPrimeiroNome.value == ''){
+                alert('O primeiro nome deve ser informado.!')
+                elPrimeiroNome.focus()
+                let valido = false
+            }
+            else if(elSobrenome.value.trim() == ''){
+                alert('O sobrenome deve ser informado')
+                elSobrenome.focus()
+                let valido = false
+            }
+            else if(elFormaTratamento.selectedIndex <= 0){
+                alert('Escolha uma forma de tratamento.')
+                elFormaTratamento.focus()
+                let valido = false
+            }
+            else if(elHoraDia.value.trim() == '' || elHoraDia.value < 0 || elHoraDia.value > 23){
+                alert('Informe uma hora do dia válida.')
+                elHoraDia.focus()
+                let valido = false
+            }
+            else(!(elAlert.checked || elDocument.checked)){
+                alert('Pelomenos uma forma de exibição deve ser marcada.')
+                elAlert.focus()
+                let valido = false
+            }
+        }
+
+        function montarSaudacao() {
+            if(validar()){
+                let saudacao = ''
+
+                if(elHoraDia.value < 12){
+                    sadacao = 'Bom dia, '
+                }
+                else if(elHora.value < 18){
+                    saudacao = 'Boa tarde, '
+                }
+                else{
+                    sadacao = 'Boa noite, '
+                }
+
+                switch(elFormaTratamento.selectedIndex){
+                    case 1:
+                        sadacao += 'Vossa majestade'
+                        break
+                    case 2:
+                        if(elMasculino.checked){
+                            saudacao = 'Excelentíssimo'
+                        }
+                        else {
+                            sadacao += 'Excelentíssima'
+                        }
+                        break 
+                    case 3:
+                        if(elMasculino.checked){
+                            sadacao += 'Ilustríssimo'
+                        }
+                        else {
+                            sadacao += 'Ilustríssima'
+                        }
+                        break
+                    case 4:
+                        saudacao += 'Vossa senhoria'
+                        break
+                    case 5:
+                        if(elFeminino.checked){
+                            saudacao += 'Senhora'
+                        }
+                        else {
+                            saudacao += 'Senhor'
+                        }
+                        break
+                    default:
+                        if(elMasculino.checked){
+                            saudacao += 'Cremoso'
+                        }
+                        else {
+                            saudacao += 'Cremosa'
+                        }
+                }
+
+                saudacao = elPrimeiroNome.value + ' ' + elSobrenome.value
+                saudacao = ', como posso ser util ?'
+
+                if(elAlert.checked){
+                    alert(saudacao)
+                }
+                if(elDocument.checked){
+                    elSaudacao.innerText = saudacao
+                }
+            }
+        }
+
+        elEnviar.addEventListener('click', montarSaudacao)
+
     </script>
 </body>
 </html>
