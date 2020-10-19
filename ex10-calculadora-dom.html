@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+ 
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">177000.000000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100D1709B3E936BE4488A7EEB682FDD8227</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <h1>Calculadora</h1>
+
+    <br>
+
+    <div>
+        <label>Primeiro número</label>
+        <input type="number" id="primeiroNumero">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Selecione um operador númerico</label>
+        <select id="operador">
+            <option>(Selecione)</option>
+            <option>Soma</option>
+            <option>Subtração</option>
+            <option>Multiplicação</option>
+            <option>Divisão</option>
+            <option>Potenciação</option>
+            <option>Resto da divisão</option>
+        </select>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Segundo número</label>
+        <input type="number" id="segundoNumero">
+    </div>
+
+    <br>
+    <div>
+        <label id="exibir">Aqui será exibido o resultado</label>
+    </div>
+
+    <br>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    
+
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+    
+        /* 
+
+            Monte um formulário com os seguintes campos:
+            * Primeiro número (input numérico)
+            * Operação aritmética (select, com as opções de soma, subtração,
+                multiplicação, divisão, potenciação e resto da divisão)
+            * Segundo número (input numérico)
+            * Div para exibição do resultado da operação aritmética
+            * Botão "calcular"
+
+            Validações:
+            * Os campos de número devem estar preenchidos e com números válidos
+            * Deve ter sido selecionada uma operação artimética válida
+
+        */
+
+        const elnum1 = document.querySelector('#primeiroNumero')
+        const elnum2 = document.querySelector('#segundoNumero')
+        const elselec = document.querySelector('#operador')
+        const calc = document.querySelector('#calcular')
+
+        function validar(){
+            let valido = true
+            
+
+
+            if(elnum1.value.trim() == ''){
+                alert('Insira o primeiro número')
+                elnum1.focus()
+                valido = false
+            }
+            else if(elselec.selectedIndex <=0){
+                alert('Escolha um operador')
+                elselec.focus()
+                valido = false
+            }
+            else if(elnum2.value.trim() == ''){
+                alert('Insira o segundo número')
+                elnum2.focus()
+                valido = false
+            }
+
+            return valido
+        }
+
+        function contas(){
+            if(validar()){
+
+                let resultado
+
+                let num1 = parseFloat(elnum1.value)
+                let num2 = parseFloat(elnum2.value)
+
+                switch(elselec.selectedIndex){
+                    case 1: 
+                        resultado = num1 + num2
+                        break
+                    case 2: 
+                        resultado = num1 - num2
+                        break
+                    case 3: 
+                        resultado = num1 * num2
+                        break
+                    case 4: 
+                        resultado = num1 / num2 
+                        break
+                    case 5: 
+                        resultado = num1 ** num2
+                        break
+                    default:
+                        resultado = num1 % num2
+                }
+
+                exibir.innerHTML = resultado
+            }
+        }
+
+        calc.addEventListener('click', contas)
+    </script>
+</body>
+</html>
